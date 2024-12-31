@@ -8,35 +8,7 @@ from math import sqrt
 class Robot(TimedRobot):
     # Initialize Robot
     def robotInit(self):
-        print("\033[1;91m")
-        kinematics = ArmKinematics3(
-            1,
-            1,
-            RotationRange(Rotation2d(0), Rotation2d.fromDegrees(90)),
-            RotationRange(Rotation2d(0), Rotation2d.fromDegrees(90)),
-            ArmResolution.LOW,
-        )
-        options = [
-            (0, 2, Rotation2d.fromDegrees(0)),
-            (2, 0, Rotation2d.fromDegrees(0)),
-            (sqrt(2) - 0.1, sqrt(2) - 0.1, Rotation2d.fromDegrees(0)),
-            (sqrt(2) - 0.1, sqrt(2) - 0.1, Rotation2d.fromDegrees(45)),
-            (sqrt(2) + 0.1, sqrt(2) + 0.1, Rotation2d.fromDegrees(45)),
-        ]
-        for x, y, wrist in options:
-            try:
-                out = kinematics.get_angles(x, y, wrist)
-                print(
-                    f"({x}, {y}, {wrist.degrees()} deg) ",
-                    out[0].degrees(),
-                    out[1].degrees(),
-                    out[2].degrees(),
-                )
-            except ValueError as e:
-                print(f'({x}, {y}) threw an error: "{e}"')
-
-        print("\033[0;0m")
-        exit(0)
+        pass
 
     def robotPeriodic(self) -> None:
         pass
